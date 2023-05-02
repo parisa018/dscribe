@@ -18,7 +18,7 @@ limitations under the License.
 
 #include <pybind11/numpy.h>
 #include <string>
-#include "descriptor.h"
+#include "descriptorlocal.h"
 #include "celllist.h"
 
 namespace py = pybind11;
@@ -27,11 +27,8 @@ using namespace std;
 /**
  * SOAP descriptor with GTO radial basis.
  */
-class SOAPGTO: public Descriptor {
+class SOAPGTO: public DescriptorLocal {
     public:
-        /**
-         *
-         */
         SOAPGTO(
             double rcut,
             int nmax,
@@ -46,9 +43,7 @@ class SOAPGTO: public Descriptor {
             py::array_t<int> species,
             bool periodic
         );
-        /**
-         * For creating SOAP output.
-         */
+
         void create(
             py::array_t<double> out, 
             py::array_t<double> positions,
@@ -73,9 +68,6 @@ class SOAPGTO: public Descriptor {
             CellList cell_list
         ) const;
 
-        /**
-         * Get the number of features.
-         */
         int get_number_of_features() const;
 
         /**
@@ -112,11 +104,8 @@ class SOAPGTO: public Descriptor {
 /**
  * SOAP descriptor with polynomial radial basis.
  */
-class SOAPPolynomial: public Descriptor {
+class SOAPPolynomial: public DescriptorLocal {
     public:
-        /**
-         *
-         */
         SOAPPolynomial(
             double rcut,
             int nmax,
@@ -131,9 +120,7 @@ class SOAPPolynomial: public Descriptor {
             py::array_t<int> species,
             bool periodic
         );
-        /**
-         * For creating SOAP output.
-         */
+
         void create(
             py::array_t<double> out, 
             py::array_t<double> positions,
@@ -158,9 +145,6 @@ class SOAPPolynomial: public Descriptor {
             CellList cell_list
         ) const;
 
-        /**
-         * Get the number of features.
-         */
         int get_number_of_features() const;
 
     private:

@@ -17,17 +17,23 @@ limitations under the License.
 #define DESCRIPTORGLOBAL_H
 
 #include <pybind11/numpy.h>
-#include <string>
+#include "descriptor.h"
 #include "celllist.h"
 
 namespace py = pybind11;
 using namespace std;
 
 /**
- * Descriptor base class.
+ * Global descriptor base class.
  */
-class DescriptorGlobal {
+class DescriptorGlobal : public Descriptor {
     public:
+        /**
+         * Constructor.
+         */
+        DescriptorGlobal(bool periodic, string average="", double cutoff=numeric_limits<double>::infinity())
+        : Descriptor(periodic, average, cutoff) {};
+
         /**
         * Calculates the feature vector.
         *
@@ -57,11 +63,6 @@ class DescriptorGlobal {
         ) = 0; 
 
         /**
-         * Pure virtual function for getting the number of features.
-         */
-        virtual int get_number_of_features() const = 0; 
-
-        /**
         * Calculates the numerical derivates with central finite difference.
         *
         * @param derivatives Numpy output array for the derivatives.
@@ -83,12 +84,6 @@ class DescriptorGlobal {
             py::array_t<int> indices,
             bool return_descriptor
         );
-
-    protected:
-        DescriptorGlobal(bool periodic, string average="", double cutoff=0);
-        const bool periodic;
-        const string average;
-        const double cutoff;
 };
 
 #endif

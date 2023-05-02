@@ -33,7 +33,7 @@ SOAPGTO::SOAPGTO(
     py::array_t<int> species,
     bool periodic
 )
-    : Descriptor(periodic, average, rcut+cutoff_padding)
+    : DescriptorLocal(periodic, average, rcut+cutoff_padding)
     , rcut(rcut)
     , nmax(nmax)
     , lmax(lmax)
@@ -197,7 +197,7 @@ SOAPPolynomial::SOAPPolynomial(
     py::array_t<int> species,
     bool periodic
 )
-    : Descriptor(periodic, average, rcut+cutoff_padding)
+    : DescriptorLocal(periodic, average, rcut+cutoff_padding)
     , rcut(rcut)
     , nmax(nmax)
     , lmax(lmax)

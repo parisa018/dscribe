@@ -56,8 +56,9 @@ extensions = [
         [
             "dscribe/ext/ext.cpp",
             "dscribe/ext/celllist.cpp",
-            "dscribe/ext/descriptorglobal.cpp",
             "dscribe/ext/descriptor.cpp",
+            "dscribe/ext/descriptorglobal.cpp",
+            "dscribe/ext/descriptorlocal.cpp",
             "dscribe/ext/cm.cpp",
             "dscribe/ext/soap.cpp",
             "dscribe/ext/soapGTO.cpp",
