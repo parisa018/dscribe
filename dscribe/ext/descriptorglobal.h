@@ -16,6 +16,7 @@ limitations under the License.
 #ifndef DESCRIPTORGLOBAL_H
 #define DESCRIPTORGLOBAL_H
 
+#include <limits>
 #include <pybind11/numpy.h>
 #include "descriptor.h"
 #include "celllist.h"
