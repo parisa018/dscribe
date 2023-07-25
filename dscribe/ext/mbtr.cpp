@@ -16,7 +16,7 @@ void MBTR::getK1(py::array_t<double> &descriptor, const vector<int> &Z, const st
 
     int nAtoms = Z.size();
     double dx = (max-min)/(n-1);
-    double sigmasqrt2 = sigma*sqrt(2.0);
+    double sigmasqrt2 = sigma*sqrt(20000.0);
     double start = min-dx/2;
 
     for (int i = 0; i < nAtoms; ++i) {
