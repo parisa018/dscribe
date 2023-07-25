@@ -66,7 +66,7 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
     int nAtoms = Z.size();
     int nElem = this->atomicNumberToIndexMap.size();
     double dx = (max-min)/(n-1);
-    double sigmasqrt2 = sigma*sqrt(2.0);
+    double sigmasqrt2 = sigma*sqrt(20.0);
     double start = min-dx/2;
 
     // We have to loop over all atoms in the system
