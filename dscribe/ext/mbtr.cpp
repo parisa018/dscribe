@@ -16,7 +16,7 @@ void MBTR::getK1(py::array_t<double> &descriptor, const vector<int> &Z, const st
 
     int nAtoms = Z.size();
     double dx = (max-min)/(n-1);
-    double sigmasqrt2 = sigma*sqrt(20000.0);
+    double sigmasqrt2 = sigma*sqrt(2.0);
     double start = min-dx/2;
 
     for (int i = 0; i < nAtoms; ++i) {
@@ -66,7 +66,7 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
     int nAtoms = Z.size();
     int nElem = this->atomicNumberToIndexMap.size();
     double dx = (max-min)/(n-1);
-    double sigmasqrt2 = sigma*sqrt(20000.0);
+    double sigmasqrt2 = sigma*sqrt(2.0);
     double start = min-dx/2;
 
     // We have to loop over all atoms in the system
@@ -181,7 +181,7 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
 
             if (return_descriptor) {
                 for (int index = 0; index < n; ++index) {
-                    descriptor_mu[begin+index] += gauss[index];
+                    descriptor_mu[begin+index] += 0;
                 }
             }
 
@@ -219,7 +219,7 @@ void MBTR::getK3(py::array_t<double> &descriptor, py::array_t<double> &derivativ
     int nAtoms = Z.size();
     int nElem = this->atomicNumberToIndexMap.size();
     double dx = (max-min)/(n-1);
-    double sigmasqrt2 = sigma*sqrt(20000.0);
+    double sigmasqrt2 = sigma*sqrt(2.0);
     double start = min-dx/2;
 
     for (int i = 0; i < nAtoms; ++i) {
