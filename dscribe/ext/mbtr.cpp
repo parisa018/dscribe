@@ -1,4 +1,5 @@
 #include "mbtr.h"
+#include <iostream>
 using namespace std;
 
 
@@ -91,6 +92,8 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
             //double dist = sqrt(inner_product(dist_vec.begin(), dist_vec.end(), dist_vec.begin(), 0.0));
             double dist = distances[i][j];
 
+            cout << "My Edit:"<<dist<< endl;
+            
             // Calculate geometry value
             double geom;
             vector<double> geom_d(3);
@@ -181,7 +184,7 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
 
             if (return_descriptor) {
                 for (int index = 0; index < n; ++index) {
-                    descriptor_mu[begin+index] += 0;
+                    descriptor_mu[begin+index] += dist;
                 }
             }
 
