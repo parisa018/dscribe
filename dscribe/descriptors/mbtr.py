@@ -678,7 +678,9 @@ class MBTR(DescriptorGlobal):
             sigma,
             n,
         )
-
+        
+        print('My edit in python file: ',k2)
+        
         # Denormalize if requested
         if not self.normalize_gaussians:
             max_val = 1 / (sigma * math.sqrt(2 * math.pi))
