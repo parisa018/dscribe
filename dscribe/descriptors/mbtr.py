@@ -660,6 +660,8 @@ class MBTR(DescriptorGlobal):
         else:
             k2_d = np.zeros((0, 0, 0), dtype=np.float64)
 
+        print('My 1 edit in python file: ',k2)
+        
         # Generate derivatives for k=2 term
         cmbtr.get_k2(
             k2,
@@ -679,7 +681,7 @@ class MBTR(DescriptorGlobal):
             n,
         )
         
-        print('My edit in python file: ',k2)
+        print('My 2edit in python file: ',k2)
         
         # Denormalize if requested
         if not self.normalize_gaussians:
