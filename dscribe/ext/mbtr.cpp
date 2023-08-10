@@ -184,7 +184,7 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
 
             if (return_descriptor) {
                 for (int index = 0; index < n; ++index) {
-                    count<<"My Edit1 :"<<typeid(descriptor_mu).name()
+                    cout<<"My Edit1 :"<<typeid(descriptor_mu).name()
                     cout << "My Edit2 : "<< descriptor_mu[begin+index]<< endl;
                     descriptor_mu[begin+index] += dist;
                 }
