@@ -683,48 +683,7 @@ class MBTR(DescriptorGlobal):
         
         print('My 2edit in python file: ',k2)
         
-        # Denormalize if requested
-        if not self.normalize_gaussians:
-            max_val = 1 / (sigma * math.sqrt(2 * math.pi))
-            k2 /= max_val
-            k2_d /= max_val
-
-        # Valle-Oganov normalization is calculated separately for each pair.
-        # Not implemented for derivatives.
-        if self.normalization == "valle_oganov":
-            volume = self.system.cell.volume
-            # Calculate the amount of each element for N_A*N_B term
-            values, counts = np.unique(
-                self.system.get_atomic_numbers(), return_counts=True
-            )
-            counts = dict(zip(values, counts))
-            for i_z in values:
-                for j_z in values:
-                    i = self.atomic_number_to_index[i_z]
-                    j = self.atomic_number_to_index[j_z]
-                    if j < i:
-                        continue
-                    if i == j:
-                        count_product = 0.5 * counts[i_z] * counts[j_z]
-                    else:
-                        count_product = counts[i_z] * counts[j_z]
-
-                    # This is the index of the spectrum. It is given by enumerating the
-                    # elements of an upper triangular matrix from left to right and top
-                    # to bottom.
-                    m = int(j + i * n_elem - i * (i + 1) / 2)
-                    start = m * n
-                    end = (m + 1) * n
-                    norm_factor = volume / (count_product * 4 * np.pi)
-
-                    k2[start:end] *= norm_factor
-                    k2_d[:, :, start:end] *= norm_factor
-
-        # Convert to the final output precision.
-        if self.dtype == "float32":
-            k2 = k2.astype(self.dtype)
-            k2_d = k2_d.astype(self.dtype)
-
+       
         return (k2, k2_d)
 
     def _get_k3(self, system, return_descriptor, return_derivatives):
