@@ -62,7 +62,8 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
     // Create mutable and unchecked versions
     auto descriptor_mu = descriptor.mutable_unchecked<1>();
     auto derivatives_mu = derivatives.mutable_unchecked<3>();
-
+              
+    
     // Initialize some variables outside the loop
     int nAtoms = Z.size();
     int nElem = this->atomicNumberToIndexMap.size();
@@ -184,9 +185,9 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
 
             if (return_descriptor) {
                 for (int index = 0; index < n; ++index) {
-                    cout<<"My Edit1 : "<<typeid(descriptor_mu).name()<< endl;
-                    cout << "My Edit2 : "<< descriptor_mu[begin+index]<< endl;
-                    descriptor_mu[begin+index] += dist;
+                    cout<<"My Edit1 , dist : "<<dist<< endl;
+                    cout << "My Edit2, descriptor: "<< descriptor_mu[begin+index]<< endl;
+                    descriptor_mu[begin+index] = dist;
                 }
             }
 
