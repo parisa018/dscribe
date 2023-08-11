@@ -636,6 +636,7 @@ class MBTR(DescriptorGlobal):
         # O(n log(n))
         n_atoms = len(ext_system)
         if r_cut is not None:
+            print("My edit in python file: We are in the if")
             dmat = ext_system.get_distance_matrix_within_radius(r_cut)
             adj_list = dscribe.utils.geometry.get_adjacency_list(dmat)
             dmat_dense = np.full(
@@ -644,6 +645,7 @@ class MBTR(DescriptorGlobal):
             dmat_dense[dmat.row, dmat.col] = dmat.data
         # If no weighting is used, the full distance matrix is calculated
         else:
+            print("My edit in python file: We are in the else") 
             dmat_dense = ext_system.get_distance_matrix()
             adj_list = np.tile(np.arange(n_atoms), (n_atoms, 1))
 
