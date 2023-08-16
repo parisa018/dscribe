@@ -653,7 +653,7 @@ class MBTR(DescriptorGlobal):
         n_features = int((n_elem * (n_elem + 1) / 2) * n)
 
         if return_descriptor:
-            k2 = np.zeros((n_features), dtype=np.float64)
+            k2 = np.zeros((n_atoms), dtype=np.float64)
         else:
             k2 = np.zeros((0), dtype=np.float64)
 
