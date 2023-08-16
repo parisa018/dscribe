@@ -662,7 +662,8 @@ class MBTR(DescriptorGlobal):
         else:
             k2_d = np.zeros((0, 0, 0), dtype=np.float64)
 
-        print('My 1 edit in python file: ',k2)
+        print('My 1 edit in python file: k2:',k2)
+        print('My 2 edit in python file: the k2 size: ' k2.size())
         
         # Generate derivatives for k=2 term
         cmbtr.get_k2(
