@@ -189,7 +189,7 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
             if (return_descriptor) {
                 cout<<"My Edit1 , dist : "<<dist<< endl;
                 cout << "My Edit2, descriptor: "<< descriptor_mu[i]<< endl;
-                descriptor_mu[i] = dist;
+                descriptor_mu[i][j] = dist;
             }
 
             if (return_derivatives) {
