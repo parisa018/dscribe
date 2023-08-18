@@ -71,8 +71,6 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
     double sigmasqrt2 = sigma*sqrt(2.0);
     double start = min-dx/2;
 
-    cout<<"My Edit0 , nAtoms : "<<nAtoms<< endl;
-    cout<<"My Edit1 , nElem : "<<nElem<< endl;
 
     // We have to loop over all atoms in the system
     for (int i = 0; i < nAtoms; ++i) {
@@ -96,7 +94,6 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
             //double dist = sqrt(inner_product(dist_vec.begin(), dist_vec.end(), dist_vec.begin(), 0.0));
             double dist = distances[i][j];
 
-            cout << "My Edit2 : "<<dist<< endl;
             
             // Calculate geometry value
             double geom;
@@ -187,7 +184,6 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
             int end = (m + 1) * n;
 
             if (return_descriptor) {
-                cout<<"My Edit1 , dist : "<<dist<< endl;
                 descriptor_mu(i,j) = dist;
             }
 
