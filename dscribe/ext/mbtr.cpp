@@ -60,7 +60,7 @@ void MBTR::getK1(py::array_t<double> &descriptor, const vector<int> &Z, const st
 void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivatives, bool return_descriptor, bool return_derivatives, const vector<int> &Z, const vector<vector<double>> &positions, const vector<vector<double>> &distances, const vector<vector<int>> &neighbours, const string &geomFunc, const string &weightFunc, const map<string, double> &parameters, double min, double max, double sigma, int n)
 {
     // Create mutable and unchecked versions
-    auto descriptor_mu = descriptor.mutable_unchecked<1>();
+    auto descriptor_mu = descriptor.mutable_unchecked<2>();
     auto derivatives_mu = derivatives.mutable_unchecked<3>();
               
     
