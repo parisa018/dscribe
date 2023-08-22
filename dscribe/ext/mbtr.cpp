@@ -184,7 +184,7 @@ void MBTR::getK2(py::array_t<double> &descriptor, py::array_t<double> &derivativ
             int end = (m + 1) * n;
 
             if (return_descriptor) {
-                descriptor_mu(i,j) = dist;
+                descriptor_mu(i,j) = geom;
             }
 
             if (return_derivatives) {
